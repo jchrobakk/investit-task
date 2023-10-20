@@ -16,7 +16,8 @@ const Timer = () => {
     };
   }, []);
 
-  const date = new Date().toTimeString();
+  // previously date was a normal variable so react was updating it each rerender (it was caused by interval in useEffect)
+  const [date] = useState(new Date().toTimeString());
 
   return (
     <VStack
