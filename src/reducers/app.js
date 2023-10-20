@@ -12,9 +12,12 @@ export const appSlice = createSlice({
     toggleDarkMode: (state) => {
       state.darkMode = !state.darkMode;
     },
+    addToList: (state, action) => {
+      state.list = [...state.list, ...action.payload];
+    },
   },
 });
 
-export const { toggleDarkMode } = appSlice.actions;
+export const { toggleDarkMode, addToList } = appSlice.actions;
 
 export default appSlice.reducer;
