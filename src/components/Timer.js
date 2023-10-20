@@ -4,9 +4,11 @@ import React, { useEffect, useState } from 'react';
 const Timer = () => {
   const [seconds, setSeconds] = useState(0);
 
+  // issue was useEffect capturing the initial 'seconds' state (0) and not recognizing updates. the solution was to use a functional update to setSeconds
+
   useEffect(() => {
     const interval = setInterval(() => {
-      setSeconds(seconds + 1);
+      setSeconds((prevSeconds) => prevSeconds + 1);
     }, 1000);
 
     return () => {
